@@ -3,7 +3,7 @@ package com.mailys;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayDeque;
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class Main {
@@ -41,12 +41,13 @@ public class Main {
                         } else if (IntStream.of(secret).anyMatch(x -> x == currentDigitPlayer)) {
                             result.addLast("-");
                         } else {
-                            result.push("");
+                            result.addLast("");
                         }
                     }
+
                 StringBuilder finalShowResult = showResult;
                 result.stream().forEach(x -> finalShowResult.append(x));
-                System.out.println("résultat: " + showResult);
+                System.out.println("résultat: " + finalShowResult);
                 if(result.stream().allMatch( x -> x == "+")){
                     endGame = true;
                 }
